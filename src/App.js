@@ -11,7 +11,8 @@ function App() {
     // update();
     // create();
     // deleteRecord();
-    getViews();
+    // getViews();
+    getViewRecords();
   }, []);
 
   const query = async () => {
@@ -35,7 +36,12 @@ function App() {
 
   const getViews = async () => {
     const response = await plApi.current.getViews(1);
-    setData(response.views);
+    setData(response);
+  }
+
+  const getViewRecords = async () => {
+    const response = await plApi.current.getViewRecords(1, "6889a741-c00f-4a54-8c47-a262a9c7c838");
+    setData(response);
   }
 
   return (
