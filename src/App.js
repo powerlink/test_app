@@ -7,10 +7,11 @@ function App() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    query();
+    // query();
     // update();
     // create();
     // deleteRecord();
+    getViews();
   }, []);
 
   const query = async () => {
@@ -30,6 +31,11 @@ function App() {
 
   const deleteRecord = async () => {
     const response = await plApi.current.delete(1, '25DB3EC1-731E-4B5C-B8C8-95240E575EF7');
+  }
+
+  const getViews = async () => {
+    const response = await plApi.current.getViews(1);
+    setData(response.views);
   }
 
   return (
